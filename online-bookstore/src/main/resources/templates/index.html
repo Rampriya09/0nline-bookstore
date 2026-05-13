@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Real Bookstore</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 50px; text-align: center; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { background: white; border-radius: 10px; padding: 20px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .price { font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+    <h1>📚 Real-Time Bookstore</h1>
+    <div class="container">
+        <div th:each="book : ${listBooks}" class="card">
+            <h2 th:text="${book.title}">Title</h2>
+            <p th:text="${book.author}">Author</p>
+            <p class="price">$<span th:text="${book.price}">0.00</span></p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</body>
+</html>
